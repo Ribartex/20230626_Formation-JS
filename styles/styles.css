@@ -1,0 +1,61 @@
+#header-name{
+    color: dodgerblue;
+    font-weight: bolder;
+    text-shadow: 5px 5px 10px green;
+    font-size: 30pt;
+    text-decoration: solid blue;
+    padding-left: 10px;
+}
+#dot{
+    color: crimson;
+    font-weight: 900;
+}
+#js{
+    color: rgb(201, 68, 183);
+    font-weight: bold;
+}
+footer{
+    text-align: center;
+    text-decoration: double black;
+}
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+article{
+    flex-grow: 1;
+}
+#editor{
+    display: flex;
+}
+#editor>*:first-child{
+    flex-grow: 1;
+}
+#editor>*:first-child>*{
+    height: 100%;
+    width: 100%;
+}
+#editor{
+    background-color: rgb(78, 78, 78);
+}
+#editor-form{text-align: center;}
+.flex-col{
+    display: flex;
+}
+.flex-col>*{
+    text-align: center;
+}
+input[input="number"]{
+    width: 100px;
+}
+.center{
+    text-align: center;
+}
+h2{
+    font-weight: bold;
+}
+h3{
+    font-weight: normal;
+    
+}
