@@ -1,0 +1,11 @@
+{
+  "name": "20230626_formation-js",
+  "version": "1.0.0",
+  "description": "Repo pour la formation JS",
+  "scripts": {
+    "start": "npx lite sever"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
