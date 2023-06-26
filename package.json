@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "Repo pour la formation JS",
   "scripts": {
-    "start": "npx lite sever"
+    "start": "lite-server"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
 }
