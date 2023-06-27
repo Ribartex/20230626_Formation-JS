@@ -1,4 +1,11 @@
-var uneVariableLambda=23;
-var UNE_VALEUR_CONST = Object.freeze({})
-function onbuttonclick(evt){
+/**
+ * fonction d'initialisation
+ * @returns {undefined} aucun retour
+ */
+
+
+function init(){
+    var currentDate=new Date()
+    console.log(currentDate.toISOString());
 }
+init()
