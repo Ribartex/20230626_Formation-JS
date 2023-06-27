@@ -5,6 +5,13 @@
 
 
 function init(){
+
+    document
+        .querySelector('#theme-switch')
+        .addEventListener("change",function (evt){
+            changeTheme(evt.target.checked)
+    });
+
     var currentDate=new Date()
     console.log(currentDate.toISOString());
     var footer=document.getElementsByTagName('footer')[0]
@@ -21,14 +28,20 @@ function init(){
  */
 function changeTheme(isDark) {
     var nav=document.getElementsByTagName('nav')[0]
+    var slider=document.getElementById('theme-switch')
+    var lbl=document.querySelector('#theme label')
     if (isDark) {
         document.body.className = "dark";
         nav.classList.replace('navbar-light','navbar-dark');
         nav.classList.replace('bg-light','bg-dark');
+        slider.checked=true
+        lbl.innerHTML="dark"
     } else {
         document.body.className = "";
         nav.classList.replace('navbar-dark','navbar-light');
         nav.classList.replace('bg-dark','bg-light');
+        slider.checked=false
+        lbl.innerHTML="clair"
     }
 }
 document.addEventListener('DOMContentLoaded',function(evt){
