@@ -1,3 +1,6 @@
+header{
+    display: flex;
+}
 #header-name{
     color: dodgerblue;
     font-weight: bolder;
@@ -5,7 +8,12 @@
     font-size: 30pt;
     text-decoration: solid blue;
     padding-left: 10px;
+    flex-grow: 1;
 }
+#theme{
+    text-align: end;
+}
+
 #dot{
     color: crimson;
     font-weight: 900;
