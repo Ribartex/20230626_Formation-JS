@@ -5,13 +5,12 @@
 
 
 function init(){
-
     document
         .querySelector('#theme-switch')
         .addEventListener("change",function (evt){
             changeTheme(evt.target.checked)
     });
-
+    
     var currentDate=new Date()
     console.log(currentDate.toISOString());
     var footer=document.getElementsByTagName('footer')[0]
