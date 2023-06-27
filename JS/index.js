@@ -5,7 +5,7 @@
 
 
 function init(){
-
+initMemeEditor();
     document
         .querySelector('#theme-switch')
         .addEventListener("change",function (evt){
@@ -13,7 +13,7 @@ function init(){
     });
 
 
-    
+
     var currentDate=new Date()
     console.log(currentDate.toISOString());
     var footer=document.getElementsByTagName('footer')[0]
