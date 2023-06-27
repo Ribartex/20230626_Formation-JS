@@ -15,11 +15,11 @@ var currentMeme = new Meme("");
     })
     var form=document.forms['meme-form'];
     form['x'].addEventListener('change',function(evt){
-        currentMeme.x=evt.target.value
+        currentMeme.x= Number(evt.target.value)
     })
     var form=document.forms['meme-form'];
     form['y'].addEventListener('change',function(evt){
-        currentMeme.y=evt.target.value
+        currentMeme.y= Number(evt.target.value)
     })
     var form=document.forms['meme-form'];
     form['color'].addEventListener('change',function(evt){
