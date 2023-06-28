@@ -1,4 +1,4 @@
-import { handleRoute } from "./router.js";
+// import { handleRoute } from "./router.js";
 
 document.addEventListener('DOMContentLoaded',(evt)=>(
     handleRoute()
