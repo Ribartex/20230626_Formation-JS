@@ -23,7 +23,7 @@ const routeConfig = {
 };
 
 class Router {
-    
+   #currentRoute
   /**
    * manage la route en cours
    */
