@@ -7,7 +7,7 @@ function initMemeEditor() {
   });
 
   form["imageId"].addEventListener("change", function (evt) {
-    currentMeme.imageId = evt.target.value;renderMeme()
+    currentMeme.imageId = Number(evt.target.value);renderMeme()
   });
 
   form["text"].addEventListener("input", function (evt) {
@@ -25,6 +25,7 @@ function initMemeEditor() {
   form["color"].addEventListener("change", function (evt) {
     currentMeme.color = evt.target.value;renderMeme()
   });
+  loadSelectImages(images);
 }
 
 function renderMeme(meme){
@@ -33,10 +34,32 @@ function renderMeme(meme){
     }
 /**^En gros si on met pas currentMeme dans le renderMeme() ça défini tout seul currentMeme ^*/
     var svg=document.querySelector('#editor-viewer svg');
+    var imgElement=svg.querySelector('image');
     var textElement=svg.querySelector('text');
+    var img=images.find(function(img){
+        return img.id===meme.imageId})
+    imgElement.setAttribute('xlink:href',img.url);
+
     textElement.innerHTML=meme.text;
     textElement.style.fill=meme.color;
     textElement.style.fontSize=meme.fontSize;
     textElement.setAttribute('x',meme.x);
     textElement.setAttribute('y',meme.y);
+}
+function loadSelectImages(images) {
+    var select=document.forms['Meme-form']['imageId'];
+    //vidange du select
+    var children=select.children[0].cloneNode(true)
+    select.innerHTML= "";
+    
+    var optBase=document.createElement('option');
+    optBase.value="erty";
+    optBase.innerHTML='text visuel';
+    select.appendChild(optBase);
+    images.forEach(function(img){
+        var opt=optBase.cloneNode(true);
+        opt.value=img.id;
+        opt.innerHTML=img.titre;
+        select.appendChild(opt);
+    });
 }
