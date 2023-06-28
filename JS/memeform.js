@@ -1,6 +1,8 @@
+import { Meme } from "./Meme.js";
+import { images } from "./values.js";
 var currentMeme = new Meme("");
 //console.log(meme);
-function initMemeEditor() {
+export function initMemeEditor() {
   var form = document.forms["Meme-form"];
   form["titre"].addEventListener("input", function (evt) {
     currentMeme.titre = evt.target.value;renderMeme()
@@ -34,17 +36,21 @@ function renderMeme(meme){
     }
 /**^En gros si on met pas currentMeme dans le renderMeme() ça défini tout seul currentMeme ^*/
     var svg=document.querySelector('#editor-viewer svg');
-    var imgElement=svg.querySelector('image');
-    var textElement=svg.querySelector('text');
     var img=images.find(function(img){
         return img.id===meme.imageId})
-    imgElement.setAttribute('xlink:href',img.url);
+    var imgElement=svg.querySelector('image');
+    var textElement=svg.querySelector('text');
+
+    svg.setAttribute('viewBox',`0 0 ${undefined!==img?img.w:500} ${undefined!==img?img.h:500}`);
+
+    imgElement.setAttribute('xlink:href', undefined!==img? img.url:"");
 
     textElement.innerHTML=meme.text;
     textElement.style.fill=meme.color;
     textElement.style.fontSize=meme.fontSize;
     textElement.setAttribute('x',meme.x);
     textElement.setAttribute('y',meme.y);
+
 }
 function loadSelectImages(images) {
     var select=document.forms['Meme-form']['imageId'];

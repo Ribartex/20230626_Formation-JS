@@ -1,3 +1,5 @@
+import { initMemeEditor } from "./memeform.js";
+
 /**
  * fonction d'initialisation
  * @returns {undefined} aucun retour
