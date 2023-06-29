@@ -6,18 +6,20 @@ let currentMeme;
 let currentImage
 const VIEW_EDITOR_CSS_SELECTOR = "#editor";
 export const initEditor = () => {
-    if(undefined!==router.params.id){
-        currentMeme=ressources.meme.find(m=>m.id===router.params.id)
-    }
-    else{currentMeme=new Meme()}
+
     initFormEvent()
   if (ressources.isLoaded) {
     initSelectImages();
     setCurrentMeme()
+    if(undefined!==router.params.id){
+        currentMeme=ressources.meme.find(m=>m.id===Number(router.params.id))
+    }
+    else{currentMeme=new Meme()}
   } else {
     ressources.loadRessources((res) => {
       initSelectImages();
-      setCurrentMeme()
+      setCurrentMeme();
+
     });
   }
 };
