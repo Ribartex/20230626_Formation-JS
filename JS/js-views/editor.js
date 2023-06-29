@@ -6,14 +6,18 @@ let currentMeme;
 let currentImage
 const VIEW_EDITOR_CSS_SELECTOR = "#editor";
 export const initEditor = () => {
+    if(undefined!==router.params.id){
+        currentMeme=ressources.meme.find(m=>m.id===router.params.id)
+    }
+    else{currentMeme=new Meme()}
     initFormEvent()
   if (ressources.isLoaded) {
     initSelectImages();
-    setCurrentMeme(new Meme())
+    setCurrentMeme()
   } else {
     ressources.loadRessources((res) => {
       initSelectImages();
-      setCurrentMeme(new Meme())
+      setCurrentMeme()
     });
   }
 };
@@ -67,7 +71,7 @@ const initFormValues = () => {
     form["imageId"].value=currentMeme.imageId
     form["color"].value=currentMeme.color
 };
-const setCurrentMeme = (meme) => {
+const setCurrentMeme = (meme=currentMeme) => {
     currentMeme=meme;
     initFormValues();
     const img=ressources.images.find((im=>im.id===meme.imageId))
