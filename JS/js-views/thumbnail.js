@@ -17,8 +17,8 @@ const initPreview=()=>{
     ressources.memes.forEach(m=>{
         const newPreviewer=basePreviewer.cloneNode(true);
         newPreviewer.id+=m.id
-
-
+        newPreviewer.querySelector(".thumbnail-meme-title").innerHTML=m.titre
+        newPreviewer.querySelector('a').href+=m.id
         ListConctainer.appendChild(newPreviewer)
         const img=ressources.images.find(im=>im.id===m.imageId)
         Meme.render(m,'#'+newPreviewer.id,img)

@@ -23,7 +23,7 @@ const routeConfig = {
       templateUrl: "/vues/templateQuiExistePasSurLeServeur.html",
     },
     {
-      path: "/editor",
+      path: /\/editor(\/(?<id>\d*))?/,
       initialisation: initEditor,
       templateUrl: "/view/editor.html",
     },
@@ -32,6 +32,10 @@ const routeConfig = {
 
 class Router {
   #currentRoute;
+  #params = {};
+  get params() {
+    return this.#params;
+  }
   get currentRoute() {
     return this.#currentRoute;
   }
@@ -47,9 +51,19 @@ class Router {
   handleRoute() {
     const pathName = location.pathname;
     console.log(pathName);
-    this.#currentRoute = routeConfig.routes.find(
-      (route) => route.path === pathName
-    );
+    this.#currentRoute = routeConfig.routes.find((route) => {
+      if (route.path instanceof RegExp) {
+        const regReturn = route.path.exec(pathName);
+        if (null !== regReturn) {
+          //ca a match
+          this.#params = { ...regReturn.groups };
+          return true;
+        } else return false;
+      } else {
+        return route.path === pathName;
+      }
+    });
+
     this.#instanciateCurrentRouteTemplate();
   }
   /**
@@ -95,10 +109,10 @@ class Router {
       link.addEventListener("click", this.#handleLinkEvent);
     });
   }
-  #handleLinkEvent=(evt)=> {
+  #handleLinkEvent = (evt) => {
     evt.preventDefault();
     this.changeRoute(evt.target.href);
-  }
+  };
   /**ajouter le = et => autour du evt ci-dessous transforme la fonction en une fonction faite par nous et pas par le "this" */
 }
 export const router = new Router();
