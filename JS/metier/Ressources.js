@@ -12,7 +12,11 @@ export class Ressources {
   get isLoaded() {
     return this.#isloaded
   }
-  loadRessources() {
+  /**
+   * 
+   * @param {Function} callback 
+   */
+  loadRessources(callback) {
     const promiseImage = fetch(REST_ADR + RESSOURCE_PATH.images).then((resp) =>
       resp.json()
     );
@@ -27,6 +31,7 @@ export class Ressources {
       this.#memes.splice(0);
       this.#memes.push(...array[1])
       this.#isloaded=true;
+      if(undefined!==callback){callback(this)}
     });
 
   }
