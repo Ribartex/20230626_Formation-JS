@@ -220,6 +220,45 @@
       "frameSizeX": 0,
       "frameSizeY": 0,
       "id": 8
+    },
+    {
+      "titre": "é\"'\"é'",
+      "text": "ezerzerezr",
+      "x": 0,
+      "y": 50,
+      "imageId": 2,
+      "fontSize": 30,
+      "fontWeight": "500",
+      "underline": false,
+      "italic": false,
+      "color": "#000000",
+      "id": 9
+    },
+    {
+      "titre": "zerezrez",
+      "text": "rezrezrzer",
+      "x": 0,
+      "y": 50,
+      "imageId": 7,
+      "fontSize": 30,
+      "fontWeight": "500",
+      "underline": false,
+      "italic": false,
+      "color": "#000000",
+      "id": 10
+    },
+    {
+      "titre": "erzer",
+      "text": "ezrzerez",
+      "x": 0,
+      "y": 50,
+      "imageId": 6,
+      "fontSize": 30,
+      "fontWeight": "500",
+      "underline": false,
+      "italic": false,
+      "color": "#000000",
+      "id": 11
     }
   ]
 }

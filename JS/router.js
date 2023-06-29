@@ -1,5 +1,6 @@
 import { initEditor } from "./js-views/editor.js";
 import { initHome } from "./js-views/home.js";
+import { initThumbnail } from "./js-views/thumbnail.js";
 
 /**
  * variable de config des routes
@@ -8,7 +9,7 @@ const routeConfig = {
   routes: [
     {
       path: "/thumbnail",
-      initialisation: undefined,
+      initialisation: initThumbnail,
       templateUrl: "/view/thumbnail.html",
     },
     {
