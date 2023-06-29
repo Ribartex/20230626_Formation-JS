@@ -19,7 +19,7 @@ export class Meme {
     );
     const imgElement = svg.querySelector("image");
     const textElement = svg.querySelector("text");
-    
+
     imgElement.setAttribute("xlink:href", undefined !== img ? img.url : "");
 
     textElement.innerHTML = meme.text;
